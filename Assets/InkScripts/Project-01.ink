@@ -1,3 +1,7 @@
+EXTERNAL Name(charName)
+EXTERNAL Icon(charName)
+EXTERNAL Background(charName)
+
 /*
     Project 01
     
@@ -39,6 +43,10 @@ VAR Bachita = 0
 VAR Pipsqueak = 0
 VAR alone = 1 
 
+
+{Name("Bachita")}
+{Icon("Bachita")}
+{Background("Emperor")}
 -> camp 
 
 == camp == 
