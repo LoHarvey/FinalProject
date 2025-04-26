@@ -1,6 +1,8 @@
 EXTERNAL Name(charName)
 EXTERNAL Icon(charName)
 EXTERNAL Background(charName)
+{Name("")}
+{Icon("Empty_Character")}
 
 /*
     Project 01
@@ -44,9 +46,9 @@ VAR Pipsqueak = 0
 VAR alone = 1 
 
 
-{Name("Bachita")}
-{Icon("Bachita")}
-{Background("Emperor")}
+{Name("")}
+{Icon("Empty_Character")}
+{Background("Camp_Day")}
 -> camp 
 
 == camp == 
@@ -82,8 +84,7 @@ And you, the thief—quick-witted, silent in your steps, hungry for more than ju
 -> END
 
 == tonight == 
-
-Tonight, you’ll meet with the others. Together, you’ll plan, strategize, gather your materiels and rehearse your roles.
+{Name("")}{Icon("Empty_Character")}Tonight, you’ll meet with the others. Together, you’ll plan, strategize, gather your materiels and rehearse your roles.
 Tomorrow, you’ll either succeed beyond your wildest dreams… or fall to the blades of the kingdom’s finest. No matter the cost, you’re in this now. 
 There’s no turning back.
 
@@ -108,36 +109,38 @@ The fire crackles as your team gathers around, the tension thick in the air.
  ~ King = King + 1
  ~ Bachita = Bachita + 1
  ~ Pipsqueak = Pipsqueak + 1
-Pipsqueak, tall and built like a bull, stands with a grin, his caramel skin glowing in the firelight. "You’re late," he rumbles. "We’ve been waiting."
 
-Next to him, The King —silent and calculating—fingers the edge of a map, his dark eyes scanning it with a sharp focus. "We’ve got a way in," he says softly, his voice carrying weight. "But it won’t be easy."
 
-Bachita, the fastest of the bunch, stands off to the side, her jet-black braid whipping in the wind. Her navy mask conceals her face, but the cold steel in her gaze is clear. "We don’t get second chances. Whatever we do, it has to be clean."
+{Name("Pipsqueak")}{Icon("Pipsqueak")}Pipsqueak, tall and built like a bull, stands with a grin, his caramel skin glowing in the firelight. "You’re late," he rumbles. "We’ve been waiting."
+
+{Name("The King")}{Icon("The King")}Next to him, The King —silent and calculating—fingers the edge of a map, his dark eyes scanning it with a sharp focus. "We’ve got a way in," he says softly, his voice carrying weight. "But it won’t be easy."
+
+{Name("Bachita")}{Icon("Bachita")}Bachita, the fastest of the bunch, stands off to the side, her jet-black braid whipping in the wind. Her navy mask conceals her face, but the cold steel in her gaze is clear. "We don’t get second chances. Whatever we do, it has to be clean."
 
 * [ Make a plan ] -> let_em_know
 -> END
 
 == let_em_know ==
 
-You take a breath, laying out the options before them:
+{Name("")}{Icon("Empty_Character")}You take a breath, laying out the options before them:
 
 Option One: Daylight Strike. “We blend in with the festival setup, slip through the back alleys, and get out before the crowd swells. It’s risky, but the cover is thick.”
 
-Pipsqueak scoffs. "Too much chance of getting spotted. There’s no room for mistakes."
+{Name("Pipsqueak")}{Icon("Pipsqueak")}Pipsqueak scoffs. "Too much chance of getting spotted. There’s no room for mistakes."
 
 Option Two: The Moon Festival . “We slip in during the height of the festival. The crowds will cover us, and we vanish into the woods once we have what we need.”
 
-King nods, tapping his finger on the map. “We can use the confusion to our advantage. But we’ll need to move fast.”
+{Name("The King")}{Icon("The King")}King nods, tapping his finger on the map. “We can use the confusion to our advantage. But we’ll need to move fast.”
 
-Bachita smiles under her mask. "I’ll be in and out before anyone even knows we’re there."
+{Name("Bachita")}{Icon("Bachita")}Bachita smiles under her mask. "I’ll be in and out before anyone even knows we’re there."
 
 Option three : The underground Tunnels. "Secret passage ways that our Syndicate haev been using for years to get in and out of the Kingdoms walls unoticed" 
 
-Pipsqueak raises an eyebrow. "Could be good... unless the tunnels are sealed."
+{Name("Pipsqueak")}{Icon("Pipsqueak")}Pipsqueak raises an eyebrow. "Could be good... unless the tunnels are sealed."
 
-Bachita nods. "But if they’re open, it’s our cleanest way in."
+{Name("Bachita")}{Icon("Bachita")}Bachita nods. "But if they’re open, it’s our cleanest way in."
 
-The group falls quiet, each option holding its own risks. You’re in charge of the decision now.
+{Name("")}{Icon("Empty_Character")}The group falls quiet, each option holding its own risks. You’re in charge of the decision now.
 
 * [ Option one : Daylight Srike ] -> Selection_1
 * [ Option two : The Moon Festival ] -> Selection_2
@@ -147,29 +150,29 @@ The group falls quiet, each option holding its own risks. You’re in charge of 
 
 == let_em_know2 ==
 
-You take a breath, laying out the options before them:
+{Name("")}{Icon("Empty_Character")}You take a breath, laying out the options before them:
 
 Option One: Daylight Strike. “We blend in with the festival setup, slip through the back alleys, and get out before the crowd swells. It’s risky, but the cover is thick.” 
 
 " King and I, after watching the guards know that we are going to need more than our daggers. So make sure you all have the weapons you need"
 
-Pipsqueak scoffs. "If it comes down to strength, I have your guys' back."
+{Name("Pipsqueak")}{Icon("Pipsqueak")}Pipsqueak scoffs. "If it comes down to strength, I have your guys' back."
 
 Option Two: The Moon Festival . “We slip in during the height of the festival. The crowds will cover us, and we vanish into the woods once we have what we need.”
 
 " We watched them practice their passages and guard changes for the night of the festival, and it looks like these guards are lighter on their armour incase they need to move. If we plan on going in the night we need to wear the right foot gear to out run them. Got it?"
 
-King nods, tapping his finger on the map. “ Not that we will have to worry about Bachita, but we should all find some equipment so we can keep up"
+{Name("The King")}{Icon("The King")}King nods, tapping his finger on the map. “ Not that we will have to worry about Bachita, but we should all find some equipment so we can keep up"
 
-Bachita smiles under her mask. "We already knew that, speed was never an issue."
+{Name("Bachita")}{Icon("Bachita")}Bachita smiles under her mask. "We already knew that, speed was never an issue."
 
 Option Three: Underground Route. " After scouting the path to the tunnels with The King, we found that they have places a guard outpost just beyond its entrance. So our third option is off the table."
 
-Pipsqueak suffles his feet and with a defeated look, nods in agreement. " it would be a suicide misson, I am not happy about it, but youre right" 
+{Name("Pipsqueak")}{Icon("Pipsqueak")}Pipsqueak suffles his feet and with a defeated look, nods in agreement. " it would be a suicide misson, I am not happy about it, but youre right" 
 
-Bachita nods in agreement. 
+{Name("Bachita")}{Icon("Bachita")}Bachita nods in agreement. 
 
-The group falls quiet, each option holding its own risks. You’re in charge of the decision now.
+{Name("")}{Icon("Empty_Character")}The group falls quiet, each option holding its own risks. You’re in charge of the decision now.
 
 * [ Option one : Daylight Srike ] -> Selection_1
 * [ Option two : The Moon Festival ] -> Selection_2
@@ -177,7 +180,7 @@ The group falls quiet, each option holding its own risks. You’re in charge of 
 
 == Selection_1 == 
 ~ Option = Option + 1
-The team nods in agreement.
+{Name("")}{Icon("Empty_Character")}The team nods in agreement.
 
 * [ Get prepared ] -> tonight
 
@@ -185,7 +188,7 @@ The team nods in agreement.
 
 == Selection_2 == 
 ~ Option = Option + 2
-The team nods in agreement.
+{Name("")}{Icon("Empty_Character")}The team nods in agreement.
 
 * [ Get prepared ] -> tonight
 
@@ -193,7 +196,7 @@ The team nods in agreement.
 
 == Selection_3 == 
 ~ Option = Option + 3
-The team nods in agreement.
+{Name("")}{Icon("Empty_Character")}The team nods in agreement.
 
 * [ Get prepared ] -> tonight
 
@@ -203,7 +206,7 @@ The team nods in agreement.
 
 ~ alone = alone - 1
 
-The palace looms ahead, its stone walls rising high against the sky, and you wander through the streets, taking in the scene. People bustle about, preparing for the festival, setting up stalls and banners. In the distance, you spot guards stationed at intervals along the outer wall, but no sign of movement. It’s calm, peaceful, almost too calm.
+{Name("")}{Icon("Empty_Character")}The palace looms ahead, its stone walls rising high against the sky, and you wander through the streets, taking in the scene. People bustle about, preparing for the festival, setting up stalls and banners. In the distance, you spot guards stationed at intervals along the outer wall, but no sign of movement. It’s calm, peaceful, almost too calm.
 
 A few hours later, you overhear some locals talking in hushed tones about the upcoming festivities. A woman mentions the masks. “Everyone will be wearing them,” she says, voice low. “Perfect cover for the masqurade, don't you think?" 
 
@@ -217,7 +220,7 @@ As you walk back to camp, you feel the weight of your decision—whether by dayl
 
 == King_Scout ==
 
-It is { advance_time () }
+{Name("The King")}{Icon("King")}It is { advance_time () }
 
 The sun hangs low in the sky as you and The King make your way toward the palace walls. His footsteps are silent, as always, his eyes sharp. The two of you move through the outskirts of the city, keeping to the alleyways and backstreets. It’s the first real chance you’ve had to scout the palace up close, and you need to know its every weakness before you can make a move.
 
@@ -260,7 +263,7 @@ You’re left with the remaining two options—the daylight strike, or the chaos
 
 == storage_tent ==
 
-The canvas flap of the Midnight Syndicate storage tent rustles as you push it open.
+{Name("")}{Icon("Empty_Character")}The canvas flap of the Midnight Syndicate storage tent rustles as you push it open.
 Inside, the air smells of leather, oil, and something faintly metallic. 
 The tent is dimly lit by lanterns hung from the ceiling, casting a warm glow over rows of weapons and armor from past heists. 
 Each piece tells a story—a jagged sword with a chipped hilt, a bowstring worn thin from overuse, and plates of armor dented from too many close calls. It’s a treasure trove of danger, a reminder of just how high the stakes are.
@@ -361,9 +364,9 @@ You know the risks of this heist, and the supplies you choose could be the diffe
 
 == Leader ==
 
-It is { advance_time () }
+{Name("")}{Icon("Empty_Character")}It is { advance_time () }
 
-You enter the dimly lit tent, the familiar scent of smoke and leather greeting you. The leader of the Midnight Syndicate, an imposing figure known only as Vera, sits at a large wooden table, surrounded by maps and documents. She doesn’t look up immediately, her fingers tapping rhythmically against the surface. After a moment, her piercing gaze locks onto you, and the rest of the team shifts uneasily behind you.
+{Name("Vera")}{Icon("Vera")}You enter the dimly lit tent, the familiar scent of smoke and leather greeting you. The leader of the Midnight Syndicate, an imposing figure known only as Vera, sits at a large wooden table, surrounded by maps and documents. She doesn’t look up immediately, her fingers tapping rhythmically against the surface. After a moment, her piercing gaze locks onto you, and the rest of the team shifts uneasily behind you.
 
 “So,” she starts, her voice low and steady, “which plan are we going with?”
 
