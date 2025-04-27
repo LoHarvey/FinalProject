@@ -14,7 +14,7 @@ The hardest part about creating our game was coordinating times to meet, since w
 
 ## Implementation
 - Includes a visual novel look and feel with point and click dialogue/choice options.
-- Almost all assets created by us:
+- Almost all assets created by our team:
     - Characters + sounds by Ash
     - Weapons + backgrounds by Izzy
 
