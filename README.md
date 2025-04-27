@@ -14,12 +14,13 @@ The hardest part about creating our game was coordinating times to meet, since w
 
 ## Implementation
 - Includes a visual novel look and feel with point and click dialogue/choice options.
-- Almost all assets created by our team:
+      - Medieval look and feel
+- Almost all assets created by our team, save the fonts:
     - Characters + sounds by Ash
     - Weapons + backgrounds by Izzy
 
 ## References
-Font imported from fonts2u.com
+Fonts imported from fonts2u.com
 
 ## Future Development
 N/A
