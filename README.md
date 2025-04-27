@@ -6,6 +6,7 @@ We thought about implementing the theme in several ways—one chance, one life, 
 
 ## Game Play
 Objective:
+
 Game-play instructions:
 
 ## Impediments
