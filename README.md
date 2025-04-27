@@ -10,7 +10,7 @@ Objective:
 Game-play instructions:
 
 ## Impediments
-The hardest part about creating our game was coordinating times to meet, since we each were a bit scattered in terms of locations/work/other priorities. We had to communicate over text quite a bit, which definitely complicated things because of delays and ideas that might’ve been lost in translation. We also encountered a bit of trouble implementing our sprites and fonts and the like, but we eventually got it all figured out.
+The hardest part about creating our game was coordinating times to meet as a group, since we each were a bit scattered in terms of locations/work/other priorities. We had to communicate over text quite a bit, which definitely complicated things because of delays and ideas that might’ve been lost in translation. We also encountered a bit of trouble implementing our sprites and fonts and the like, but we eventually got it all figured out.
 
 ## Implementation
 - Includes a visual novel look and feel with point and click dialogue/choice options
