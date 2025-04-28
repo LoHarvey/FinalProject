@@ -1,4 +1,4 @@
-# The Midnight Syndicate
+# The Midnight Raiders
 MSCH-C220 Game Jam, April 2025
 
 ## Theme
