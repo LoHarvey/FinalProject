@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Ink.Runtime;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public
     class ScriptReader : MonoBehaviour
@@ -16,6 +17,7 @@ public
     public TMP_Text nameTag;
     public Image characterIcon;
     public Image sceneBackground;
+
 
     [SerializeField]
     private GridLayoutGroup choiceHolder;
@@ -42,8 +44,9 @@ public
         _StoryScript.BindExternalFunction("Icon", (string charName) => CharacterIcon(charName));
         _StoryScript.BindExternalFunction("Background", (string charName) => SceneBackground(charName));
 
-    }
 
+    }
+    
     public void DisplayNextLine()
 
 
@@ -61,7 +64,7 @@ public
         }
         else
         {
-            dialogueBox.text = "That's all"; //if there's nothing left to display
+            SceneManager.LoadScene("EndMenu");
         }
     }
     private void DisplayChoices()

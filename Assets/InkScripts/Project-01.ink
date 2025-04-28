@@ -1,6 +1,7 @@
 EXTERNAL Name(charName)
 EXTERNAL Icon(charName)
 EXTERNAL Background(charName)
+EXTERNAL Sword(charName)
 {Name("")}
 {Icon("Empty_Character")}
 
@@ -35,6 +36,7 @@ VAR alone = 1
 {Name("")}
 {Icon("Empty_Character")}
 {Background("Camp_Day")}
+{Sword("Sword)}
 -> camp 
 
 == camp == 
