@@ -5,21 +5,7 @@ EXTERNAL Background(charName)
 {Icon("Empty_Character")}
 
 /*
-    Project 01
-    
-    Requirements (for 15 base points)
-    - Create an interactive fiction story with at least 8 knots 
-    - Create at least one major choice that the player can make
-    - Reflect that choice back to the player
-    - Include at least one loop
-    
-    To get a full 20 points, expand upon the game in the following ways
-    [+2] Include more than eight passages
-    [+1] Allow the player to pick up items and change the state of the game if certain items are in the inventory. Acknowledge if a player does or does not have a certain item
-    [+1] Give the player statistics, and allow them to upgrade once or twice. Gate certain options based on statistics (high or low. Maybe a weak person can only do things a strong person can't, and vice versa)
-    [+1] Keep track of visited passages and only display the description when visiting for the first time (or requested)
-    
-    Make sure to list the items you changed for points in the Readme.md. I cannot guess your intentions!
+ 
 
 */
 
@@ -52,9 +38,14 @@ VAR alone = 1
 -> camp 
 
 == camp == 
+Heist of the Moon Festival
 
+{Name("Narrator")}
+{Icon("Empty_Character")}
+{Background("Camp_Day")}
 
-It is { advance_time () } On { advance_day () }
+It is { advance_time () }
+On { advance_day () }
 
 The morning sun filters through the trees, casting long shadows over the dirt path leading into the bandits' camp. 
 The air smells faintly of smoke and earth, the remnants of last night’s fire still hanging in the cool breeze. The place itself is alive with activity—gruff voices, the clatter of iron, and the flicker of campfires as a ragtag crew of thieves prepare for the night soon to come.
@@ -63,7 +54,7 @@ The air smells faintly of smoke and earth, the remnants of last night’s fire s
 -> END
 
 == Midnight_Syndicate ==
-{Name("Narrator")}{Icon("Empty_Character")}
+
 You are a member of the infamous Midnight Syndicate, a house of thieves, mercenaries, and cutthroats who have made their fortune from plunder and cunning. 
 Your syndicate has grown in both number and reputation over the years, but there are still few who possess the nerve to attempt a heist so grand it' could go down in history. 
 Today is different. This isn’t just any petty robbery. It’s the heist of the millinium. 
@@ -74,21 +65,22 @@ Tomorrow, during the moon festival, the kingdom’s most prized treasures will b
 -> END
 
 == problem1 ==
-{Name("Narrator")}{Icon("Empty_Character")}
+
 But there’s a problem. 
-The palace’s walls are fortified, its guards loyal and countless. Most of the guild has turned down the task, too afraid of being caught or even killed. Only a handful of the bravest—or most foolish—dare to step forward.
-A team of four will sneak into the heart of the kingdom under the cover of the moon’s glow, strike during the busy life of the festival, and steal all that they can carry. 
+The palace’s walls are fortified, its guards loyal and countless. Most of the guild has turned down the task, too afraid of being caught or even killed. Only a handful of the bravest—or most foolish—dare to step forward. A team of four will sneak into the heart of the kingdom under the cover of the moon’s glow, strike during the busy life of the festival, and steal all that they can carry. 
 And you, the thief—quick-witted, silent in your steps, hungry for more than just scraps from the roadside—are one of them.
 
 * [ Continue...] -> tonight
 -> END
 
 == tonight == 
-{Name("Narrator")}{Icon("Empty_Character")}{Background("Camp_Day")}Tonight, you’ll meet with the others. Together, you’ll plan, strategize, gather your materiels and rehearse your roles.
+{Name("")}{Icon("Empty_Character")}Tonight, you’ll meet with the others. Together, you’ll plan, strategize, gather your materiels and rehearse your roles.
 Tomorrow, you’ll either succeed beyond your wildest dreams… or fall to the blades of the kingdom’s finest. No matter the cost, you’re in this now. 
 There’s no turning back.
 
 * { King < 1 } [ Meet with your team ] -> team_meeting 
+* { alone > 0 } [ Scout the defences Alone ] -> palace_walls 
+* { King > 0 } { Option < 1 } [Scout with King] -> King_Scout
 * { Items < 1 } { King > 0 } [ Gather supplies ] -> storage_tent
 * { King > 0 } { Items > 0 } { Option > 0 } [ Talk to Syndicate leader ] -> Leader 
 * { King > 0 } { Bachita > 0 } { Items > 0 } [ Decide on the Plan ] -> let_em_know2
@@ -97,7 +89,7 @@ There’s no turning back.
 
 
 === team_meeting ===
-{Name("Narrator")}{Icon("Empty_Character")}{Background("Team")}
+
 The fire crackles as your team gathers around, the tension thick in the air. 
 * [ Meet the team ] -> team_game
 -> END 
@@ -111,9 +103,9 @@ The fire crackles as your team gathers around, the tension thick in the air.
 
 {Name("Pipsqueak")}{Icon("Pipsqueak")}Pipsqueak, tall and built like a bull, stands with a grin, his caramel skin glowing in the firelight. "You’re late," he rumbles. "We’ve been waiting."
 
-{Name("The King")}{Icon("King")}Next to him, The King —silent and calculating—fingers the edge of a map, his dark eyes scanning it with a sharp focus. "We’ve got a way in," he says softly, his voice carrying weight. "But it won’t be easy."
+{Name("The King")}{Icon("The King")}Next to him, The King —silent and calculating—fingers the edge of a map, his dark eyes scanning it with a sharp focus. "We’ve got a way in," he says softly, his voice carrying weight. "But it won’t be easy."
 
-{Name("Bachita")}{Icon("Bachita")}Bachita, the fastest of the bunch, stands off to the side, her jet-black hair complimented only by her blue eyes. Her navy mask conceals her face, but the cold steel in her gaze is clear. "We don’t get second chances. Whatever we do, it has to be clean."
+{Name("Bachita")}{Icon("Bachita")}Bachita, the fastest of the bunch, stands off to the side, her jet-black braid whipping in the wind. Her navy mask conceals her face, but the cold steel in her gaze is clear. "We don’t get second chances. Whatever we do, it has to be clean."
 
 * [ Make a plan ] -> let_em_know
 -> END
@@ -128,14 +120,21 @@ Option One: Daylight Strike. “We blend in with the festival setup, slip throug
 
 Option Two: The Moon Festival . “We slip in during the height of the festival. The crowds will cover us, and we vanish into the woods once we have what we need.”
 
-{Name("The King")}{Icon("King")}King nods, tapping his finger on the map. “We can use the confusion to our advantage. But we’ll need to move fast.”
+{Name("The King")}{Icon("The King")}King nods, tapping his finger on the map. “We can use the confusion to our advantage. But we’ll need to move fast.”
 
 {Name("Bachita")}{Icon("Bachita")}Bachita smiles under her mask. "I’ll be in and out before anyone even knows we’re there."
 
-{Name("Narrator")}{Icon("Empty_Character")}The group falls quiet, each option holding its own risks. You’re in charge of the decision now.
+Option three : The underground Tunnels. "Secret passage ways that our Syndicate haev been using for years to get in and out of the Kingdoms walls unoticed" 
+
+{Name("Pipsqueak")}{Icon("Pipsqueak")}Pipsqueak raises an eyebrow. "Could be good... unless the tunnels are sealed."
+
+{Name("Bachita")}{Icon("Bachita")}Bachita nods. "But if they’re open, it’s our cleanest way in."
+
+{Name("")}{Icon("Empty_Character")}The group falls quiet, each option holding its own risks. You’re in charge of the decision now.
 
 * [ Option one : Daylight Srike ] -> Selection_1
 * [ Option two : The Moon Festival ] -> Selection_2
+* [Option three : Underground Route ] -> Selection_3
 * [Gather more intel first ] -> tonight
 -> END
 
@@ -153,7 +152,7 @@ Option Two: The Moon Festival . “We slip in during the height of the festival.
 
 " We watched them practice their passages and guard changes for the night of the festival, and it looks like these guards are lighter on their armour incase they need to move. If we plan on going in the night we need to wear the right foot gear to out run them. Got it?"
 
-{Name("The King")}{Icon("King")}King nods, tapping his finger on the map. “ Not that we will have to worry about Bachita, but we should all find some equipment so we can keep up"
+{Name("The King")}{Icon("The King")}King nods, tapping his finger on the map. “ Not that we will have to worry about Bachita, but we should all find some equipment so we can keep up"
 
 {Name("Bachita")}{Icon("Bachita")}Bachita smiles under her mask. "We already knew that, speed was never an issue."
 
@@ -253,7 +252,8 @@ You’re left with the remaining two options—the daylight strike, or the chaos
 -> END
 
 == storage_tent ==
-{Name("Narrator")}{Icon("Empty_Character")}{Background("Inventory")}The canvas flap of the Midnight Syndicate storage tent rustles as you push it open.
+
+{Name("")}{Icon("Empty_Character")}The canvas flap of the Midnight Syndicate storage tent rustles as you push it open.
 Inside, the air smells of leather, oil, and something faintly metallic. 
 The tent is dimly lit by lanterns hung from the ceiling, casting a warm glow over rows of weapons and armor from past heists. 
 Each piece tells a story—a jagged sword with a chipped hilt, a bowstring worn thin from overuse, and plates of armor dented from too many close calls. It’s a treasure trove of danger, a reminder of just how high the stakes are.
@@ -267,42 +267,79 @@ The Midnight Syndicate has always kept the best of the loot for themselves, and 
 You step deeper inside, eyes scanning the shelves and racks, your fingers brushing over the cold steel and worn leather. 
 The Midnight Syndicate has always kept the best of the loot for themselves, and tonight, you’re choosing what you’ll need for the heist.
 
-Ahead, a weapons rack catches your eye. You see a sharp dagger, its edge glinting in the lantern light. It’s well-balanced, a perfect weapon for close combat, sleek and silent, best for moving through the night.
+Ahead, a weapons rack catches your eye. You see a sharp sword, its edge glinting in the lantern light. It’s well-balanced, a perfect weapon for close combat, but it’s heavy—maybe a bit too heavy for quick maneuvers.
 
-On the opposite side, a finely crafted bow with a set of arrows rests against a rack. Its wood is smooth, and the string taut.
-It would let you strike from a distance, silent and swift, but you’ll need steady hands and nerves of steel to pull it off in the heat of the moment.
-Finnaly mounted to the back wall is a large crafted Axe. The stories this weapon could tell... Its about the size of you and looks to weigh about the same, a weapon made for a true warrior.
+On the opposite side, a finely crafted bow with a set of arrows rests against a rack. Its wood is smooth, and the string taut. It would let you strike from a distance, silent and swift, but you’ll need steady hands and nerves of steel to pull it off in the heat of the moment.
 
-In the end, You can only have one. So choose wisely
+* [Take the Sword] -> sword_pickup
+* [Take the Bow]-> bow_pickup
 
-* [Take Batchitas Dagger] -> sword_pickup
-* [Take The Kings Bow]-> bow_pickup
-* [Take Pipsqueaks Axe] -> axe_pickup
 -> END
 
+== Shelves_2 == 
+
+Next, your gaze shifts to the armor section. A pair of arm cuffs gleams in the light, perfectly shaped to protect your wrists without restricting your movements. It would be ideal for close combat and blocking strikes. 
+
+But beside them, a new pair of boots catches your attention. They’re made from soft leather, durable yet lightweight—perfect for quiet steps and fast escapes.
+
+* [Pick the Arm Cuffs] -> cuff_pickup
+* [Put on the boots] -> boot_pickup
+-> END
+
+== Shelves_3 ==
+
+Lastly, tucked into a corner on a wooden shelf, a health potion sits, the glass bottle glowing faintly. It’s a little on the pricey side, but it could save your life if things go sideways.
+
+* [Take the potion ] -> potion_pickup
+* [Leave the potion] -> leave_potion
+-> END
 
 == sword_pickup ==
 
-You now have Bachita's Dagger! Be wise where you swing. 
+You now have a sword! Be wise where you swing. 
 ~ Items = Items + 1
 ~ Sword = Sword + 1 
 ~ Damage = Damage + 2
-* [Continue looking through tent] -> gathering_end
+* [Continue looking through tent] -> Shelves_2
 
 == bow_pickup ==
 
-You now have The Kings Bow! Be wise where you aim. { King > 0 : The King would be proud. }
+You now have a Bow! Be wise where you aim. { King > 0 : The King would be proud. }
 ~ Items = Items + 1
 ~ Bow = Bow + 1 
 ~ Damage = Damage + 1
 ~ Speed = Speed + 1
-* [Continue looking through tent] -> gathering_end
+* [Continue looking through tent] -> Shelves_2
 
-== axe_pickup ==
+== cuff_pickup ==
 
-You lug the cartoonishly large Axe and sling it to your back holster. Pipsqueak would be proud, be strong!
+You lace the Arm Cuffs tightly around your right and left forarms! Better to be safe than sorry.  
+~ Items = Items + 1
+~ Cuffs = Cuffs + 1 
+~ Defense = Defense + 2
+* [Continue looking through tent] -> Shelves_3
+
+== boot_pickup ==
+
+You lace the Boots nice and tight. As you get to your feet you can feel yourself more sure in your steps.
 ~ Items = Items + 1
 ~ Speed = Speed + 2 
+~ Boots = Boots + 1
+* [Continue looking through tent] -> Shelves_3
+
+== potion_pickup ==
+
+You pick up the small glass bottle and hold it close to your face to inspect it closer. It glows a warm red and bubbles just above its surface. 
+
+Might come in handy. { Bachita > 0 : I should probably ask Bachita what it is before I go drinking it myself. }
+
+~ Items = Items + 1
+~ Potion = Potion + 1 
+* [Continue looking through tent] -> gathering_end
+
+== leave_potion ==
+
+After glaring at the potion for what seemed like hours, you decide to leave it where it sits in its wooden home. 
 
 * [Continue looking through tent] -> gathering_end
 
@@ -316,11 +353,10 @@ You know the risks of this heist, and the supplies you choose could be the diffe
 
 
 == Leader ==
-{Background("Vera")}
+
 {Name("")}{Icon("Empty_Character")}It is { advance_time () }
 
-{Name("Vera")}{Icon("Vera")}You enter the dimly lit tent, the familiar scent of smoke and leather greeting you. The leader of the Midnight Syndicate, an imposing figure known only as Vera, sits at a large wooden table, surrounded by maps and documents. 
-She doesn’t look up immediately, her fingers tapping rhythmically against the surface. After a moment, her piercing gaze locks onto you, and the rest of the team shifts uneasily behind you.
+{Name("Vera")}{Icon("Vera")}You enter the dimly lit tent, the familiar scent of smoke and leather greeting you. The leader of the Midnight Syndicate, an imposing figure known only as Vera, sits at a large wooden table, surrounded by maps and documents. She doesn’t look up immediately, her fingers tapping rhythmically against the surface. After a moment, her piercing gaze locks onto you, and the rest of the team shifts uneasily behind you.
 
 “So,” she starts, her voice low and steady, “which plan are we going with?”
 
@@ -335,8 +371,9 @@ She doesn’t look up immediately, her fingers tapping rhythmically against the 
 You take a deep breath, weighing your words carefully. 
 
 “We’re going for it during the day.” Vera’s eyes narrow slightly as she listens, then she nods slowly. 
-"A risky move," she muses. "But it could work if we’re prepared. Daylight is not our friend, so you’ll need more than just a blade.
-If you're planning to go in when the sun’s high, you’ll need something heavy—something that’ll give you the advantage against more guards. A dagger, or something with a bit more reach.” She stands, walking over to a nearby chest where weapons are stacked high. 
+"A risky move," she muses. "But it could work if we’re prepared. Daylight is not our friend, so you’ll need more than just a blade. If you're planning to go in when the sun’s high, you’ll need something heavy—something that’ll give you the advantage against more guards. A sword, or something with a bit more reach.” She stands, walking over to a nearby chest where weapons are stacked high. 
+“I recommend armor that’s durable but not too heavy—something that'll protect you but still let you move. Too light, and you’ll be vulnerable. Too heavy, and you’ll be slow.” She looks back over her shoulder. 
+“We’ll also need distractions, diversions. A fight at the wrong time, and we’re done. Make sure your gear’s up to the task. You don’t want to be caught unprepared.” She turns back to face you, her eyes calculating. 
 “Now, show me what you’ve got. Let’s see your haul from the loot tent.”
 
 * [ Show Vera what youve collected ] -> Stat_Check 
@@ -350,7 +387,7 @@ You give Vera a sharp nod, your decision clear.
 Vera’s lips curl into a faint, approving smile.
 "Better. Less risk of running into too many guards. But the night’s no friend to anyone carrying heavy gear. You’ll need to travel light—move fast, stay quiet. Don’t load up on armor you don’t need. Focus on staying nimble." 
 She pauses, eyeing the others. 
-"But don’t forget, you’ll still need a weapon. A quick blade, something you can use in the shadows. Or a bow to avoid close combat all together"
+"But don’t forget, you’ll still need a weapon. A quick blade, something you can use in the shadows. And your shoes—check your boots, and make sure they’re tight. If we’re caught, we’ll need to run, and you don’t want to be slowed down by loose laces or worn leather.”
 
 She paces around the table, eyes flicking back to you.
 “Speed is key. Don’t carry anything you’re not willing to leave behind. And remember—no noise. We can’t afford to get caught.”
@@ -391,7 +428,7 @@ She pauses, then adds with a grim smile, “But, you’ve got the Midnight Syndi
 -> END
 
 == bedtime ==
-{Name("Narrator")}{Icon("Empty_Character")}{Background("Camp_Site")}
+
 You nod trying to hide the joy you felt in her approval. You turn to face your team and gesture for the way out. 
 You slip into the team’s tent, the quiet hum of the camp surrounding you. The others settle in, but sleep feels distant. 
 Tomorrow’s the big day—the heist, the risk, everything on the line. You close your eyes, trying to silence the noise in your head. Rest is all you can do now.
@@ -403,8 +440,9 @@ Tomorrow will decide it all.
 -> END
 
 == heist_day ==
-{Name("Narrator")}{Icon("Empty_Character")}{Background("Team")}
-It is the { advance_time () } On { advance_day () } the day of Moon Festival.
+
+It is the { advance_time () }
+On { advance_day () } the day of Moon Festival.
 
 The first light of dawn filters through the tent. You wake, heart racing, the weight of the day ahead pressing down. Pipsqueak stretches, yawning. 
 “Today’s the day,” he mutters. Bachita silently ties her braid, her mask already on. 
@@ -417,17 +455,75 @@ You nod, the air thick. It’s time.
 -> END
 
 == daytime == 
-{Name("Narrator")}{Icon("Empty_Character")}{Background("Camp_Day")}
-The day before the heist is a blur of final preparations. You gather the team in the late afternoon, each member focused and ready.
-The air is thick with anticipation, the streets bustling with the growing excitement of the Moon Festival. The city’s energy is palpable, but for you and your crew, there’s no time to indulge in the celebrations.
 
-You head out for one last scout, moving through the alleys and shadows as the sun dips lower in the sky. The King, ever sharp-eyed, spots the last of the guards rotating their posts near the palace walls. 
-Pipsqueak, standing tall and quiet as always, watches for any signs of movement, his presence a silent assurance of strength. Bachita, agile as ever, keeps an eye on the rooftops, her every movement fluid and calculated.
+The day before the heist is a blur of final preparations. You gather the team in the late afternoon, each member focused and ready. The air is thick with anticipation, the streets bustling with the growing excitement of the Moon Festival. The city’s energy is palpable, but for you and your crew, there’s no time to indulge in the celebrations.
+
+You head out for one last scout, moving through the alleys and shadows as the sun dips lower in the sky. The King, ever sharp-eyed, spots the last of the guards rotating their posts near the palace walls. Pipsqueak, standing tall and quiet as always, watches for any signs of movement, his presence a silent assurance of strength. Bachita, agile as ever, keeps an eye on the rooftops, her every movement fluid and calculated.
 
 The plan is almost set, but the weight of the unknown hangs over the team. With the festival set to start soon, the city will become a maze of distractions—perfect for slipping in, but fraught with risk.
 
-As night falls, you return to the camp, your heart pounding. The final decision has been made, the team ready.
-All that’s left is to rest, for tomorrow—the heist—will begin as the moon rises.
+As night falls, you return to the camp, your heart pounding. The final decision has been made, the team ready. All that’s left is to rest, for tomorrow—the heist—will begin as the moon rises.
+
+* [The moon rises]
+
+-> End
+
+
+== function advance_time ==
+
+    ~ time = time + 1
+    
+    {
+        - time > 2:
+            ~ time = 0
+    }    
+    
+    {    
+        - time == 0:
+            ~ return "Morning"
+        
+        - time == 1:
+            ~ return "Noon"
+        
+        - time == 2:
+            ~ return "Night"
+    
+    }
+    
+    
+        
+    ~ return time
+    
+    == function advance_day ==
+
+    ~ day = day + 1
+    
+       
+    {
+        - day > 3:
+            ~ day = End
+    }
+    
+    
+    {    
+        - day == 0:
+            ~ return "Thursday"
+        
+        - day == 1:
+            ~ return "Friday"
+        
+        - day == 2:
+            ~ return "Saturday"
+        
+        - day == 3:
+            ~ return "End"
+}
+    
+    
+    == End == 
+    There will be a part two of this as a passion project!!
+    ->END
+ All that’s left is to rest, for tomorrow—the heist—will begin as the moon rises.
 
 * [The moon rises]
 
